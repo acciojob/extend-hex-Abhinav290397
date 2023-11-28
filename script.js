@@ -5,7 +5,7 @@ const extendHex = (shortHex) => {
 		if(shortHex.charAt(i) == '#')continue;
 		str += shortHex.charAt(i) + shortHex.charAt(i);
 	}
-	"#".concat(str);
+	str = "#".concat(str);
 	return str;
 };
 
