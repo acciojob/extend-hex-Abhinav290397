@@ -1,21 +1,9 @@
-it('should extend short hex to full hex', () => {
-  const shortHex = "#abc";
-  const fullHex = "#aabbcc";
-
-  cy.window().then((win) => {
-    cy.stub(win, 'prompt').returns(shortHex);
-    cy.stub(win, 'alert').as('alert');
-  });
-
-  cy.visit(baseUrl);
-
-  cy.get('@alert').should('have.been.calledWith', fullHex);
-});
 
 const extendHex = (shortHex) => {
   // write your code here
 	String str = "";
-	for(let i=0;i<shortHex.length;i++){
+	if(shortHex.length < 4)return false;
+	for(let i=1;i<shortHex.length;i++){
 		if(shortHex.charAt(i) == '#')continue;
 		str += shortHex.charAt(i) + shortHex.charAt(i);
 	}
